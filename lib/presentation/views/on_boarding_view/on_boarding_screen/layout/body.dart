@@ -82,7 +82,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                     ),
                   ):GestureDetector(
                     onTap: (){
-                      _controller.nextPage(duration: Duration(seconds: 1), curve: Curves.easeIn);
+                      _controller.nextPage(duration: Duration(milliseconds: 100), curve: Curves.easeIn);
                     },
                     child: Text(
                       'Next',

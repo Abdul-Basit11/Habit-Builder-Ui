@@ -3,8 +3,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../../../configuration/front_end_config.dart';
-
 class FrequencyContainer extends StatelessWidget {
 
   final Color freColor;

@@ -4,7 +4,7 @@ import 'package:habit_bilder_app/presentation/elements/custom_text/custom_text.d
 import 'package:habit_bilder_app/presentation/elements/customtextfield/custom_text_field.dart';
 
 import '../../../../elements/custom_button/custom_button.dart';
-import '../../login_page/layout/widget/help_button.dart';
+import '../../../../elements/custom_round_butto/round_button.dart';
 
 class ResetPaddwordViewBody extends StatelessWidget {
   const ResetPaddwordViewBody({Key? key}) : super(key: key);
@@ -20,14 +20,10 @@ class ResetPaddwordViewBody extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 17.0),
-            child: HelpButton(
-              iconPath: 'assets/images/back_arrow.png',
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
+            leading: RoundButton(
+              onTap: (){},
+          widget: Icon(Icons.arrow_back,color: FrontEndCngig.kTextColor,),
+
           ),
         ),
         body: SafeArea(

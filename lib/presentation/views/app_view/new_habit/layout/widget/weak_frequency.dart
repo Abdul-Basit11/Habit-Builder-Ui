@@ -6,6 +6,10 @@ import '../../../../../elements/custom_text/custom_text.dart';
 class WeakFrequency extends StatelessWidget {
 
 
+  final double frequency;
+
+  const WeakFrequency({super.key, required this.frequency});
+
 
 
   @override
@@ -21,7 +25,7 @@ class WeakFrequency extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomText(
-                title: 'SUN',
+                title: '${frequency.round()}%',
                 fontsize: 12,
                 textColor: FrontEndCngig.kTextColor),
             Container(
@@ -38,7 +42,7 @@ class WeakFrequency extends StatelessWidget {
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
                   stops: [
-                    0.5,0.5,1
+                    frequency/100,frequency/100,1
                   ]
                 ),
                   color: FrontEndCngig.kHabitColor,

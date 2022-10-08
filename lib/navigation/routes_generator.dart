@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/anaylatic/analytic_view.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/new_habit/new_habit_view.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/tracking_habit_view.dart';
 import 'package:habit_bilder_app/presentation/views/auth_view/login_page/login_page_view.dart';
@@ -8,6 +9,7 @@ import 'package:habit_bilder_app/presentation/views/on_boarding_view/get_started
 import 'package:habit_bilder_app/presentation/views/on_boarding_view/on_boarding_screen/on_boarding_view.dart';
 import 'package:habit_bilder_app/presentation/views/on_boarding_view/splash/splash.dart';
 
+import '../presentation/views/app_view/bottom_navigation_bar/bottom_navigation_view.dart';
 import 'navigation_routes_name.dart';
 
 class RoutesGenerater {
@@ -38,7 +40,12 @@ class RoutesGenerater {
         /// new habit
       case RoutesName.newHabitRoute:
         return MaterialPageRoute(builder: (context)=>NewHabitView());
-        ///
+        ///Bottom Bar
+      case RoutesName.bottomBarViewRoute:
+        return MaterialPageRoute(builder: (context)=>BottomVanigationBarView());
+        ///analytic view
+      case RoutesName.anaylaticViewRoute:
+        return MaterialPageRoute(builder: (context)=>AnalyticView());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(

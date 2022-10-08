@@ -10,10 +10,12 @@ class CustomText extends StatelessWidget {
   final String fontFamily;
   final double? heigtht;
   final double? letterSpacing;
+  final VoidCallback? onTap;
 
   const CustomText(
       {super.key,
       this.maxLines,
+        this.onTap,
         this.letterSpacing,
       required this.title,
       required this.fontsize,
@@ -26,17 +28,20 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      textAlign: align,
-      maxLines: maxLines,
-      style: TextStyle(
-        letterSpacing: letterSpacing,
-        fontFamily: fontFamily,
-        fontSize: fontsize,
-        fontWeight: fontWeight,
-        color: textColor,
-        height: heigtht,
+    return GestureDetector(
+      onTap: onTap,
+      child: Text(
+        title,
+        textAlign: align,
+        maxLines: maxLines,
+        style: TextStyle(
+          letterSpacing: letterSpacing,
+          fontFamily: fontFamily,
+          fontSize: fontsize,
+          fontWeight: fontWeight,
+          color: textColor,
+          height: heigtht,
+        ),
       ),
     );
   }

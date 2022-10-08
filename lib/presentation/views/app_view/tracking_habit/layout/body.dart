@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:habit_bilder_app/configuration/front_end_config.dart';
+import 'package:habit_bilder_app/navigation/navigation_routes_name.dart';
+import 'package:habit_bilder_app/presentation/elements/custom_round_butto/round_button.dart';
 import 'package:habit_bilder_app/presentation/elements/custom_text/custom_text.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/frequency_container.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/habit_text.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/home_page_banner.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/read_a_book_text.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/vertical_line_cont.dart';
-
-import '../../../auth_view/login_page/layout/widget/help_button.dart';
-import 'model/calender_model.dart';
 
 class TrackingHabitViewBody extends StatelessWidget {
   const TrackingHabitViewBody({Key? key}) : super(key: key);
@@ -23,10 +22,15 @@ class TrackingHabitViewBody extends StatelessWidget {
         .size
         .height;
     return Scaffold(
+
       extendBody: true,
 
       /// appbar
       appBar: AppBar(
+        leading: RoundButton(
+          onTap: (){},
+          widget: Icon(Icons.arrow_back,color: FrontEndCngig.kTextColor,),
+        ),
         centerTitle: true,
         title: Text(
           'HomePage',
@@ -36,15 +40,7 @@ class TrackingHabitViewBody extends StatelessWidget {
               .headline6!
               .copyWith(color: FrontEndCngig.kTextColor),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: FloatingActionButton.small(
-            elevation: 0,
-            backgroundColor: FrontEndCngig.kTextColor.withOpacity(0.3),
-            onPressed: () {},
-            child: Image.asset('assets/images/menu_image.png'),
-          ),
-        ),
+
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -109,35 +105,40 @@ class TrackingHabitViewBody extends StatelessWidget {
             k10,
 
             /// Read a book
-            Container(
-              alignment: Alignment.center,
-              height: 52,
-              width: double.infinity,
-              margin: EdgeInsets.only(left: 10),
-              decoration: kTileContainer,
-              child: Row(
-                children: [
-                  ReadABookText(
-                    habitTitle: 'Read A Book',
-                  ),
-                  kWidth24,
-                  verticalLineCont(),
-                  kWidth4,
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: 7,
-                        physics: BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return FrequencyContainer(
-                            frequency: 0.5,
-                            freColor: FrontEndCngig.kHabitColor,
-                            samecolor: FrontEndCngig.kHabitColor.withOpacity(
-                                0.2),
-                          );
-                        }),
-                  )
-                ],
+            GestureDetector(
+              onTap: (){
+               Navigator.pushNamed(context, RoutesName.anaylaticViewRoute);
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 52,
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 10),
+                decoration: kTileContainer,
+                child: Row(
+                  children: [
+                    ReadABookText(
+                      habitTitle: 'Read A Book',
+                    ),
+                    kWidth24,
+                    verticalLineCont(),
+                    kWidth4,
+                    Expanded(
+                      child: ListView.builder(
+                          itemCount: 7,
+                          physics: BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return FrequencyContainer(
+                              frequency: 0.5,
+                              freColor: FrontEndCngig.kHabitColor,
+                              samecolor: FrontEndCngig.kHabitColor.withOpacity(
+                                  0.2),
+                            );
+                          }),
+                    )
+                  ],
+                ),
               ),
             ),
             k10,

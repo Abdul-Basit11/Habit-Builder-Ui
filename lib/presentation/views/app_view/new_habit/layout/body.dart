@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_bilder_app/presentation/elements/custom_round_butto/round_button.dart';
 import 'package:habit_bilder_app/presentation/elements/custom_text/custom_text.dart';
 import 'package:habit_bilder_app/presentation/elements/customtextfield/custom_text_field.dart';
 import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/book_mark_container.dart';
-import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/weak_frequency.dart';
-import 'package:habit_bilder_app/presentation/views/app_view/tracking_habit/layout/widget/frequency_container.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/habit_frequency_container_top.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/notification_tile.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/reminder_button.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/reminder_tile.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/reminder_time_container.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/show_time_picker_sheet.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/start_this_habit.dart';
+import 'package:habit_bilder_app/presentation/views/app_view/new_habit/layout/widget/time_picker_pop_and_void.dart';
 
 import '../../../../../configuration/front_end_config.dart';
 
@@ -15,15 +21,26 @@ class NewHabitViewBody extends StatefulWidget {
 }
 
 class _NewHabitViewBodyState extends State<NewHabitViewBody> {
-  bool isOn = false;
+  final Color = FrontEndCngig.kScaffoldColor;
+  DateTime reminder=DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: FrontEndCngig.kScaffoldColor,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildFloatingActionButton(),
+      backgroundColor: Color,
       appBar: buildAppBar(context),
+
+      /// body section
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height,
         padding: EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 35),
         width: double.infinity,
         decoration: BoxDecoration(
@@ -32,192 +49,132 @@ class _NewHabitViewBodyState extends State<NewHabitViewBody> {
                 image: AssetImage('assets/images/homepage_bg_image.png'))),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              /// search bar
-              Row(
-                children: [
-                  Expanded(
-                    child: CuctomTextField(
-                        fillColor: FrontEndCngig.kWhiteColor,
-                        filled: true,
-                        hintText: 'Enter habit name '),
-                  ),
-                  kWidth10,
-                  BookMarkContainer(),
-                ],
-              ),
-              k12,
+          child: SafeArea(
+            child: Column(
+              children: [
 
-              /// custom container
-              Container(
-                height: 130,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(15)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                /// search bar
+                Row(
                   children: [
-                    /// habit frequency
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 20.0, right: 10, top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                              title: 'Habit Frequency',
-                              fontsize: 16,
-                              textColor: FrontEndCngig.kTextColor),
-                          Row(
-                            children: [
-                              CustomText(
-                                  title: 'Custom',
-                                  fontsize: 16,
-                                  textColor: FrontEndCngig.kHabitColor),
-                              Image.asset(
-                                'assets/images/arrow_forward.png',
-                                scale: 4,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                    Expanded(
+                      child: CuctomTextField(
+                          fillColor: FrontEndCngig.kWhiteColor,
+                          filled: true,
+                          hintText: 'Enter habit name '),
                     ),
-                    k20,
-                    Divider(
-                      thickness: 1,
-                      height: 1,
-                      color: FrontEndCngig.kHabitColor.withOpacity(0.3),
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        WeakFrequency(),
-                        WeakFrequency(),
-                        WeakFrequency(),
-                        WeakFrequency(),
-                        WeakFrequency(),
-                        WeakFrequency(),
-                        WeakFrequency(),
-                      ],
-                    ),
+                    kWidth10,
+                    BookMarkContainer(),
                   ],
                 ),
-              ),
-              k12,
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 18),
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    CustomText(
-                        title: 'Reminder',
-                        fontsize: 15,
-                        textColor: FrontEndCngig.kTextColor),
-                    Spacer(),
-                    CustomText(
-                        title: '10:00AM',
-                        fontsize: 15,
-                        textColor: FrontEndCngig.kHabitColor),
-                    Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 18,
-                      color: FrontEndCngig.kHabitColor,
-                    )
-                  ],
-                ),
-              ),
-              k12,
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 18),
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    CustomText(
-                        title: 'Notification',
-                        fontsize: 15,
-                        textColor: FrontEndCngig.kTextColor),
-                    Spacer(),
-                    CupertinoSwitch(
-                        trackColor: FrontEndCngig.kTextColor.withOpacity(0.3),
-                        thumbColor: FrontEndCngig.kTextColor,
-                        activeColor: FrontEndCngig.kTextColor.withOpacity(0.3),
-                        value: isOn,
-                        onChanged: (v) {
-                          setState(() {
-                            isOn = v;
-                          });
-                        }),
-                  ],
-                ),
-              ),
-                k32,
-              Container(
-                height: 220,
-                width: double.infinity,
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      height: 170,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
+                k12,
 
-                          borderRadius: BorderRadius.circular(15)
-                      ),
-                      width: double.infinity,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          k32,
-                          CustomText(
-                            title: 'Start this habit',
-                            fontsize: 22,
-                            textColor: FrontEndCngig.kTextColor,
-                            fontFamily: 'Klasik',
-                          ),
-                          k10,
-                          CustomText(
-                            align: TextAlign.center,
-                              title:
-                                  'ullamco laboris nisi ut aliquip ex eacommodo\nconsequat dolore. ',
-                              fontsize: 12,
-                              textColor: FrontEndCngig.kGreyColor),
-                          k10,
+                /// custom container
+                HabitFrequencyContainerTop(),
+                k12,
+                /// reminder tile
+                GestureDetector(
 
-                          Image.asset('assets/images/down_arrow.png',scale: 5,),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: 20,
-                      child: CircleAvatar(
+                  /// model bottom sheet.
+                  onTap: () {
+                    showModalBottomSheet(
+                      elevation: 10,
+                      barrierColor: Colors.black.withOpacity(0.7),
                         backgroundColor: Colors.white,
-                        radius: 38,
-                        backgroundImage: AssetImage(
-                            'assets/images/start_this_habit_image.png'),
-                      ),
-                    )
-                  ],
+                        context: context,
+                        builder: (context) {
+                          bool status = false;
+
+                          /// insied bottom sheet container...
+                          return StatefulBuilder(
+                            builder: (context, setState) {
+                              return Container(
+                                padding: EdgeInsets.only(bottom: 20),
+                                height: 500,
+                                decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20))),
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: GridView.builder(
+                                          gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 3,
+                                            crossAxisSpacing: 10,
+                                            mainAxisSpacing: 10,
+                                            childAspectRatio: 7 / 6,
+                                          ),
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: 1,
+                                          physics: BouncingScrollPhysics(),
+                                          padding: EdgeInsets.all(12),
+                                          itemBuilder: (context, index) {
+                                            return ReminderTimeContainer(
+                                              status: status,
+                                              time: '6:00',
+                                              onchanged: (val) {
+                                                setState(() {
+                                                  status = val;
+                                                });
+                                              },
+                                            );
+                                          }),
+                                    ),
+                                    ReminderButton(
+                                      onTapp: () {
+                                        Navigator.pop(context);
+                                        showModalBottomSheet(
+                                            context: context,
+                                            builder: (context) {
+                                              return ShowTimeSheet(
+                                                onST: (){},
+                                                onTimeChanged: (newTime){
+                                                  reminder=newTime;
+                                                },
+                                              );
+                                            });
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        });
+                  },
+
+                  /// Reminder Tile
+                  child: ReminderTile(
+                    reminderTIME: '10:00AM',
+                  ),
                 ),
-              ),
-            ],
+                k12,
+                NptificationTile(),
+                k32,
+                StartThisHabit(),
+                SizedBox(height: 30,),
+
+
+
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+        child: Icon(
+          Icons.done_outlined,
+          color: FrontEndCngig.kTextColor,
+        ),
+        backgroundColor: FrontEndCngig.kHabitColor,
+        onPressed: () {});
   }
 
   AppBar buildAppBar(BuildContext context) {
@@ -225,21 +182,17 @@ class _NewHabitViewBodyState extends State<NewHabitViewBody> {
       centerTitle: true,
       title: Text(
         'New Habit',
-        style: Theme.of(context)
+        style: Theme
+            .of(context)
             .textTheme
             .headline6!
             .copyWith(color: FrontEndCngig.kTextColor),
       ),
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 10.0),
-        child: FloatingActionButton.small(
-          elevation: 0,
-          backgroundColor: FrontEndCngig.kTextColor.withOpacity(0.3),
-          onPressed: () {},
-          child: Icon(
-            Icons.arrow_back,
-            color: FrontEndCngig.kTextColor,
-          ),
+      leading: RoundButton(
+        onTap: () {},
+        widget: Image.asset(
+          'assets/images/back_arrow.png',
+          scale: 4,
         ),
       ),
       elevation: 0,

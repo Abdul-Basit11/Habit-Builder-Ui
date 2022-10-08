@@ -10,16 +10,16 @@ class BookMarkContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
-      width: 55,
+      height: 52,
+      width: 52,
 
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
           Container(
             padding: EdgeInsets.all(6),
-            height: 48,
-            width: 48,
+            height: 45,
+            width: 45,
 
             decoration: BoxDecoration(
                 color: Colors.white,

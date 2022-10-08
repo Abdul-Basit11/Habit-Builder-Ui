@@ -16,7 +16,7 @@ class BottomVanigationBarView extends StatefulWidget {
 class _BottomVanigationBarViewState extends State<BottomVanigationBarView> {
   final screens = [
     TrackingHabitView(),
-    TrackingHabitView(),
+    NewHabitView(),
     TrackingHabitView(),
     TrackingHabitView(),
     TrackingHabitView(),
@@ -32,7 +32,10 @@ class _BottomVanigationBarViewState extends State<BottomVanigationBarView> {
       floatingActionButton: FloatingActionButton.small(
         backgroundColor: FrontEndCngig.kHabitColor,
         onPressed: () {
-        //Navigator.pushNamed(context, RoutesName.newHabitRoute);
+        Navigator.pushNamed(context, RoutesName.newHabitRoute);
+
+
+         //Navigator.push(context, MaterialPageRoute(builder: (context)=>NewHabitView()));
         },
         child: Text('+',style: TextStyle(fontSize: 20),),
       ),
