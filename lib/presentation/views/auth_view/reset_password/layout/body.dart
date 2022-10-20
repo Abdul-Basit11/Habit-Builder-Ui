@@ -12,7 +12,7 @@ class ResetPaddwordViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         backgroundColor: FrontEndCngig.kScaffoldColor,
         extendBodyBehindAppBar: true,
@@ -20,16 +20,20 @@ class ResetPaddwordViewBody extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-            leading: RoundButton(
-              onTap: (){},
-          widget: Icon(Icons.arrow_back,color: FrontEndCngig.kTextColor,),
-
+          leading: RoundButton(
+            onTap: () {},
+            widget: Icon(
+              Icons.arrow_back,
+              color: FrontEndCngig.kTextColor,
+            ),
           ),
         ),
         body: SafeArea(
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0,),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+              ),
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: Column(
@@ -46,7 +50,8 @@ class ResetPaddwordViewBody extends StatelessWidget {
                     Image.asset('assets/images/reset_pasword_image.png'),
                     k32,
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade100,
@@ -62,7 +67,8 @@ class ResetPaddwordViewBody extends StatelessWidget {
                           k12,
                           CuctomTextField(
                               filled: true,
-                              fillColor: FrontEndCngig.kTFBackGroundColor.withOpacity(0.9),
+                              fillColor: FrontEndCngig.kTFBackGroundColor
+                                  .withOpacity(0.9),
                               hintText: 'Name'),
                           k12,
                           Custombutton(
@@ -78,29 +84,23 @@ class ResetPaddwordViewBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                   k32,
-                    Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          CustomText(
-                              title: "Remember Password? ",
-                              fontsize: 14,
-                              textColor:
-                              FrontEndCngig.kTextColor),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: CustomText(
-                                fontWeight: FontWeight.bold,
-                                title: " Login ",
-                                fontsize: 14,
-                                textColor:
-                                FrontEndCngig.kTextColor),
-                          ),
-                        ]),
-
+                    k32,
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      CustomText(
+                          title: "Remember Password? ",
+                          fontsize: 14,
+                          textColor: FrontEndCngig.kTextColor),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: CustomText(
+                            fontWeight: FontWeight.bold,
+                            title: " Login ",
+                            fontsize: 14,
+                            textColor: FrontEndCngig.kTextColor),
+                      ),
+                    ]),
                   ],
                 ),
               ),

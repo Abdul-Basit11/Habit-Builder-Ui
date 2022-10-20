@@ -40,7 +40,6 @@ class _CuctomTextFieldState extends State<CuctomTextField> {
       validator: (val) => widget.validator!(val!),
       obscureText: widget.obsecureText,
       decoration: InputDecoration(
-
         border: InputBorder.none,
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide.none,
@@ -79,7 +78,7 @@ class _CuctomTextFieldState extends State<CuctomTextField> {
                     : Text(
                         'Hide',
                         style: TextStyle(
-                          fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w400,
                             color: Colors.black,
                             decoration: TextDecoration.underline),
                       ))

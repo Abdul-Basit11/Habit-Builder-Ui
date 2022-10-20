@@ -21,11 +21,14 @@ class PageThree extends StatelessWidget {
               fontFamily: 'Klasik',
               heigtht: 1.2,
             ),
-            Image.asset('assets/images/onboard_image_three.png',height: 399,fit: BoxFit.cover,),
+            Image.asset(
+              'assets/images/onboard_image_three.png',
+              height: 399,
+              fit: BoxFit.cover,
+            ),
             RichText(
                 textAlign: TextAlign.center,
-                text: TextSpan(
-                    children: [
+                text: TextSpan(children: [
                   TextSpan(
                       text: 'We Can',
                       style: TextStyle(
@@ -33,6 +36,7 @@ class PageThree extends StatelessWidget {
                           fontFamily: 'Manrope',
                           color: FrontEndCngig.kTextColor,
                           fontSize: 17)),
+
                   /// help you text
                   TextSpan(
                       text: ' Help You',
@@ -50,18 +54,15 @@ class PageThree extends StatelessWidget {
                           fontSize: 17)),
                   TextSpan(
                       text: ' Version Of',
-
                       style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.bold,
                         fontFamily: 'Manrope',
                         color: FrontEndCngig.kTextColor,
                         fontSize: 17,
-
                       )),
                   TextSpan(
                       text: ' Yourself\n',
                       style: TextStyle(
-
                           fontWeight: FontWeight.w900,
                           fontFamily: 'Manrope',
                           color: FrontEndCngig.kHabitColor,

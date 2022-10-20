@@ -14,7 +14,7 @@ class Custombutton extends StatelessWidget {
 
   const Custombutton(
       {super.key,
-        this.fontWeight,
+      this.fontWeight,
       required this.h,
       required this.fontSize,
       required this.w,
@@ -40,7 +40,7 @@ class Custombutton extends StatelessWidget {
           child: Text(
             txt,
             style: TextStyle(
-              fontWeight: fontWeight,
+                fontWeight: fontWeight,
                 color: textColor ?? Colors.grey,
                 fontSize: fontSize,
                 fontFamily: 'Manrope'),

@@ -26,7 +26,7 @@ class GetStartedViewBody extends StatelessWidget {
                   fontFamily: 'Klasik',
                   heigtht: 1.2,
                 ),
-                 Image.asset(
+                Image.asset(
                   'assets/images/get_started_image.png',
                   height: 399,
                   fit: BoxFit.contain,
@@ -82,14 +82,14 @@ class GetStartedViewBody extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Custombutton(
-                    fontWeight: FontWeight.bold ,
+                    fontWeight: FontWeight.bold,
                     fontSize: 16,
                     textColor: FrontEndCngig.kTextColor,
                     buttonbgColor: FrontEndCngig.kPrimaryColor,
                     h: 60,
                     w: double.infinity,
                     onTap: () {
-                  Navigator.pushNamed(context, RoutesName.loginPageRout);
+                      Navigator.pushNamed(context, RoutesName.loginPageRout);
                     },
                     borderRadius: 8,
                     txt: 'Get Started',

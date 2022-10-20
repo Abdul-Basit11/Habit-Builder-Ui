@@ -21,52 +21,53 @@ class PageOne extends StatelessWidget {
               fontFamily: 'Klasik',
               heigtht: 1.2,
             ),
-            Image.asset('assets/images/onboard_image_one.png',height: 399,fit: BoxFit.cover,),
+            Image.asset(
+              'assets/images/onboard_image_one.png',
+              height: 399,
+              fit: BoxFit.cover,
+            ),
             RichText(
-              textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
                 text: TextSpan(children: [
-              TextSpan(
-                  text: 'We Can',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Manrope',
-                      color: FrontEndCngig.kTextColor,
-                      fontSize: 17)),
+                  TextSpan(
+                      text: 'We Can',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Manrope',
+                          color: FrontEndCngig.kTextColor,
+                          fontSize: 17)),
+
                   /// help you text
                   TextSpan(
-                  text: ' Help You',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Manrope',
-                      color: FrontEndCngig.kHabitColor,
-                      fontSize: 17)),
+                      text: ' Help You',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Manrope',
+                          color: FrontEndCngig.kHabitColor,
+                          fontSize: 17)),
                   TextSpan(
-                  text: ' To Be Beter\n',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Manrope',
-                      color: FrontEndCngig.kTextColor,
-                      fontSize: 17)),
+                      text: ' To Be Beter\n',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Manrope',
+                          color: FrontEndCngig.kTextColor,
+                          fontSize: 17)),
                   TextSpan(
-                  text: ' Version Of',
-
-                  style: TextStyle(
-
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Manrope',
-                      color: FrontEndCngig.kTextColor,
-                      fontSize: 17,
-
-                  )),
+                      text: ' Version Of',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Manrope',
+                        color: FrontEndCngig.kTextColor,
+                        fontSize: 17,
+                      )),
                   TextSpan(
-                  text: ' Yourself\n',
-                  style: TextStyle(
-
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Manrope',
-                      color: FrontEndCngig.kHabitColor,
-                      fontSize: 17)),
-            ])),
+                      text: ' Yourself\n',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Manrope',
+                          color: FrontEndCngig.kHabitColor,
+                          fontSize: 17)),
+                ])),
           ],
         ),
       ),

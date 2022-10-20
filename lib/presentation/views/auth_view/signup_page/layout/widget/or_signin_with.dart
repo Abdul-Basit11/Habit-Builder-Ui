@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../../../configuration/front_end_config.dart';
 import '../../../../../elements/custom_text/custom_text.dart';
 
-
 class OrSigninWith extends StatelessWidget {
   const OrSigninWith({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    return Row(
       children: [
         Expanded(
           child: Container(

@@ -14,7 +14,7 @@ class OnBoardingViewBody extends StatefulWidget {
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   PageController _controller = PageController();
 
-  bool isIndex=false;
+  bool isIndex = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         children: [
           PageView(
             physics: RangeMaintainingScrollPhysics(),
-            onPageChanged: (index){
-               setState((){
-                  isIndex=(index==2);
-               });
+            onPageChanged: (index) {
+              setState(() {
+                isIndex = (index == 2);
+              });
             },
             controller: _controller,
             children: [
@@ -41,11 +41,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GestureDetector(
-                    onTap: (){
-
+                    onTap: () {
                       _controller.jumpToPage(2);
                     },
-
                     child: Text(
                       'Skip',
                       style: TextStyle(
@@ -59,40 +57,46 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       controller: _controller,
                       count: 3,
                       effect: WormEffect(
-
+                        type: WormType.thin,
                         dotColor: FrontEndCngig.kPrimaryColor,
                         dotHeight: 13,
                         dotWidth: 13,
                         strokeWidth: 2,
                         activeDotColor: FrontEndCngig.kTextColor,
                       )),
-                  isIndex?
-                  GestureDetector(
-                    onTap: (){
-                      _controller.nextPage(duration: Duration(seconds: 1), curve: Curves.easeIn);
-                      Navigator.pushNamed(context, RoutesName.getStartedViewRoutes);
-                    },
-                    child: Text(
-                      'Done',
-                      style: TextStyle(
-                          color: FrontEndCngig.kTextColor,
-                          fontSize: 15,
-                          fontFamily: 'Manrope',
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ):GestureDetector(
-                    onTap: (){
-                      _controller.nextPage(duration: Duration(milliseconds: 100), curve: Curves.easeIn);
-                    },
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                          color: FrontEndCngig.kTextColor,
-                          fontSize: 15,
-                          fontFamily: 'Manrope',
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ),
+                  isIndex
+                      ? GestureDetector(
+                          onTap: () {
+                            _controller.nextPage(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeIn);
+                            Navigator.pushNamed(
+                                context, RoutesName.getStartedViewRoutes);
+                          },
+                          child: Text(
+                            'Done',
+                            style: TextStyle(
+                                color: FrontEndCngig.kTextColor,
+                                fontSize: 15,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700),
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            _controller.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.easeInSine);
+                          },
+                          child: Text(
+                            'Next',
+                            style: TextStyle(
+                                color: FrontEndCngig.kTextColor,
+                                fontSize: 15,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
                 ],
               ))
         ],

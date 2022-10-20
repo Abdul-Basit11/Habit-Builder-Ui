@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../configuration/front_end_config.dart';
 import '../../../../../elements/custom_text/custom_text.dart';
 
-
 class AccountPlatform extends StatelessWidget {
-final String loginPlatform;
-final String ImagePath;
+  final String loginPlatform;
+  final String ImagePath;
 
-  const AccountPlatform({super.key, required this.loginPlatform, required this.ImagePath});
+  const AccountPlatform(
+      {super.key, required this.loginPlatform, required this.ImagePath});
 
   @override
   Widget build(BuildContext context) {
-    return   Container(
+    return Container(
       height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -29,10 +28,12 @@ final String ImagePath;
             width: 23,
             fit: BoxFit.cover,
           ),
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           CustomText(
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Manrope',
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Manrope',
               title: loginPlatform,
               fontsize: 16,
               textColor: FrontEndCngig.kTextColor)

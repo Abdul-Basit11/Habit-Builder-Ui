@@ -11,20 +11,22 @@ class CustomText extends StatelessWidget {
   final double? heigtht;
   final double? letterSpacing;
   final VoidCallback? onTap;
+  final TextDecoration? decoration;
 
-  const CustomText(
-      {super.key,
-      this.maxLines,
-        this.onTap,
-        this.letterSpacing,
-      required this.title,
-      required this.fontsize,
-      this.fontWeight,
-      required this.textColor,
-      this.align,
-        this.heigtht,
-      this.fontFamily='Manrope',
-      });
+  const CustomText({
+    super.key,
+    this.decoration,
+    this.maxLines,
+    this.onTap,
+    this.letterSpacing,
+    required this.title,
+    required this.fontsize,
+    this.fontWeight,
+    required this.textColor,
+    this.align,
+    this.heigtht,
+    this.fontFamily = 'Manrope',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class CustomText extends StatelessWidget {
         textAlign: align,
         maxLines: maxLines,
         style: TextStyle(
+          decoration: decoration,
           letterSpacing: letterSpacing,
           fontFamily: fontFamily,
           fontSize: fontsize,

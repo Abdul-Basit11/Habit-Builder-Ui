@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../configuration/front_end_config.dart';
 import '../../../../../elements/custom_text/custom_text.dart';
-
 
 class GoogleFacebookBtn extends StatelessWidget {
   const GoogleFacebookBtn({Key? key}) : super(key: key);
@@ -15,8 +13,7 @@ class GoogleFacebookBtn extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12)),
+                color: Colors.white, borderRadius: BorderRadius.circular(12)),
             height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +27,6 @@ class GoogleFacebookBtn extends StatelessWidget {
                 kWidth10,
                 CustomText(
                     fontWeight: FontWeight.w700,
-
                     title: 'Google',
                     fontsize: 16,
                     textColor: FrontEndCngig.kTextColor)
@@ -42,8 +38,7 @@ class GoogleFacebookBtn extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12)),
+                color: Colors.white, borderRadius: BorderRadius.circular(12)),
             height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "880829858901",
+    "project_id": "habit-307ae",
+    "storage_bucket": "habit-307ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880829858901:android:3ff5df0526f44c426240dc",
+        "android_client_info": {
+          "package_name": "com.example.habit_bilder_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880829858901-dm08n93tvq31rn4cekd16tneqp1s7j3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwt0AoG_7Hu_FzAwAGZMfad1IHGnORcsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880829858901-dm08n93tvq31rn4cekd16tneqp1s7j3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
